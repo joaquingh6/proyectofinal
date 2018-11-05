@@ -13,7 +13,7 @@
                     @csrf
                     <h3>Crear Categoria</h3>
                     <div id="app">
-                        <b>Name:</b>
+                        <b>Nombre:</b>
                         <input class="form-control" type="text" name="name" id="crearproducto" >
                         <br>
 

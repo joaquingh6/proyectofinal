@@ -2,54 +2,59 @@
 
 @section('content')
 
-    <div id="admin">
-        <div class="container">
-
-
-
-            <div class="col-12 mr-auto ml-auto mt-5">
-
-                <h4 class="text-xl-center mb-4">Panel de Administracion (Productos)  <a href="#"  data-toggle="modal" data-target="#crearproducto"><i class="fas fa-folder-plus"></i></a></h4>
-
-
-                <table class="table table-hover">
-                    <thead class="thead-dark">
-                    <tr align="center">
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Nº Serie</th>
-                        <th scope="col">Editar</th>
-                        <th scope="col">Borrar</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($productos as $producto)
-                    <tr align="center">
-                        <th scope="row">{{$producto->id}}</th>
-                        <td>{{$producto->name}}</td>
-                        <td>{{$producto->category->name}}</td>
-                        <td>{{$producto->serial}}</td>
-                        <td><a href="/product/{{$producto->id}}/edit">
-                                <i class="far fa-edit"></i>
-                            </a></td>
-                        <td>
-
-                            <a href="/product/destroy/{{$producto->id}}" onclick="return confirm('¿Seguro que quieres comprar?')"><i class="far fa-trash-alt"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
-
-                    </tbody>
-                </table>
-            </div>
+    <div class="box">
+        <div class="box-header" align="center">
+            <h3 class="box-title"><b>LISTADO DE PRODUCTOS</b></h3>
+            <br>
+            <button type="button" class="btn btn-primary"><a href="#"   style=" color: white;text-decoration: none;" data-toggle="modal" data-target="#crearproducto"><i class="fas fa-folder-plus"></i>CREAR</a></button>
         </div>
 
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Serial</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>
+                </thead>
 
+                <tbody>
+                @foreach($productos as $producto )
+                    <tr>
+                        <td style="width: 8%;">{{$producto->name}}</td>
+                        <td>{{$producto->category_id}}</td>
+                        <td>{{$producto->serial}}</td>
+                        <td style="text-align: center">
+                            <a href="/product/{{$producto->id}}/edit"><i class=""></i>Editar</a>
+                        </td>
+                        <td style="text-align: center">
+
+                            <a href="/product/destroy/{{$producto->id}}" onclick="return confirm('¿Seguro que quieres comprar?')"><i class="">Borrar</i></a>
+
+                        </td>
+                    </tr>
+                @endforeach
+
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </section>
 
         @include('products.create')
 
-    </div>
+
 
 
 

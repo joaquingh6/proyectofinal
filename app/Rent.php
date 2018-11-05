@@ -17,7 +17,7 @@ class Rent extends Model
 
     }
 
-    public function Product(){
+    public function product(){
 
         return $this->BelongsTo('App\Product','product_id');
 

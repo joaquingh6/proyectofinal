@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Auth;
 
 class CategoryController extends Controller
 {
@@ -35,12 +36,24 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-       $new['name'] = $request->name;
 
-       $categoria = Category::create($new);
-       $categorias = Category::all();
+        if (Auth::user()->role_id == 1){
 
-        return view('admin.categorias' , compact('categorias'));
+           $new['name'] = $request->name;
+
+           $categoria = Category::create($new);
+           $categorias = Category::all();
+
+            return view('admin.categorias' , compact('categorias'));
+
+        }else {
+
+            $productos = Product::where('status' ,'NO RESERVADO')->get();
+
+            $rooms = Room::all();
+
+            return view('welcome', compact('productos' , 'rooms'));
+        }
     }
 
     /**
@@ -62,11 +75,20 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
+        if (Auth::user()->role_id == 1){
+            $category = Category::where('id' , $id)->first();
 
-        $category = Category::where('id' , $id)->first();
 
+            return view('categories.edit' , compact('category'));
 
-        return view('categories.edit' , compact('category'));
+        }else {
+
+                $productos = Product::where('status' ,'NO RESERVADO')->get();
+
+                $rooms = Room::all();
+
+                return view('welcome', compact('productos' , 'rooms'));
+        }
     }
 
     public function guardar(Request $request,$id){

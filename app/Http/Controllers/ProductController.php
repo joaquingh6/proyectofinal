@@ -10,6 +10,9 @@ use Telegram;
 use Auth;
 use App\Category;
 
+
+
+
 class ProductController extends Controller
 {
     /**
@@ -102,6 +105,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+       /*
+       $request->validate([
+           'name' => 'require|min:3|max:50',
+           'description' => 'require|min:3|max:100',
+        ]);
+       */
+
         $new['name'] = $request->name;
         $new['description'] = $request->description;
         $new['category_id'] = $request->category_id;

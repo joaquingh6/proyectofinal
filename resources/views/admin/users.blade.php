@@ -2,54 +2,58 @@
 
 @section('content')
 
-    <div id="admin">
-        <div class="container">
+    <div class="box">
+        <div class="box-header" align="center">
+            <h3 class="box-title"><b>LISTADO DE USUARIOS</b></h3>
+            <br>
+            <button type="button" class="btn btn-primary"><a href="#"   style=" color: white;text-decoration: none;" data-toggle="modal" data-target="#crearusuario"><i class="fas fa-folder-plus"></i>CREAR</a></button>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Role_id</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>
+                </thead>
 
-
-
-            <div class="col-12 mr-auto ml-auto mt-5">
-
-                <h4 class="text-xl-center mb-4">Panel de Administracion (Usuarios)   <a href="#"  data-toggle="modal" data-target="#crearusuario"><i class="fas fa-folder-plus"></i></a></h4>
-
-
-                <table class="table table-hover">
-                    <thead class="thead-dark">
-                    <tr align="center">
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Rol_id</th>
-                        <th scope="col"> Editar</th>
-                        <th scope="col">Borrar</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($usuarios as $usuario)
+                <tbody>
+                @foreach($usuarios as $user )
                     <tr>
-                        <th style="text-align: center" scope="row">{{$usuario->id}}</th>
-                        <td style="text-align: center">{{$usuario->name}}</td>
-                        <td style="text-align: center">{{$usuario->email}}</td>
-                        <td style="text-align: center">{{$usuario->role_id}}</td>
-                        <td style="text-align: center"><a href="/User/{{$usuario->id}}/edit">
-                                <i class="far fa-edit"></i>
-                            </a></td>
-                        <td style="text-align: center">
+                        <td style="width: 40%;">{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->role_id}}</td>
+                        <td style="">
+                            <a href="/user/{{$user->id}}/edit"><i class=""></i>Editar</a>
+                        </td>
+                        <td style="">
 
-                            <a href="/user/destroy/{{$usuario->id}}" onclick="return confirm('¿Seguro que quieres comprar?')"><i class="far fa-trash-alt"></i></a>
+                            <a href="/user/destroy/{{$user->id}}" onclick="return confirm('¿Seguro que quieres comprar?')"><i class="">Borrar</i></a>
+
                         </td>
                     </tr>
-                    @endforeach
+                @endforeach
 
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+
+            </table>
         </div>
-
-
-        @include('users.create')
-
-
+        <!-- /.box-body -->
     </div>
+    <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </section>
+
+    @include('users.create')
+
+
 
 
 

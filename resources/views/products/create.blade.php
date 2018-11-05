@@ -12,10 +12,10 @@
                     @csrf
                     <h3>Crear Producto</h3>
                     <div id="app">
-                        <b>Name:</b>
+                        <b>Nombre:</b>
                         <input class="form-control" type="text" name="name" id="crearproducto" >
                         <br>
-                        <b>Description:</b>
+                        <b>Descripcion:</b>
                         <textarea class="form-control" type="text" name="description" id="crearproducto" ></textarea>
                         <br>
                         <b>Categoria:</b>

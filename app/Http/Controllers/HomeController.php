@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Room;
 use Illuminate\Http\Request;
 use Auth;
@@ -53,12 +54,37 @@ class HomeController extends Controller
 
     }
 
-    public function welcome(){
+    public function welcome(Request $request){
 
-        $productos = Product::where('status' ,'NO RESERVADO')->get();
+        $productos = Product::where('status' ,'NO RESERVADO')->where('id', 'LIKE' , '%' . $request->dato . '%')
+            ->orWhere('name', 'LIKE' , '%' . $request->dato . '%')
+            ->orWhere('serial', 'LIKE' , '%' . $request->dato . '%')
+            ->paginate(100);
+
 
         $rooms = Room::all();
+        $categorias = Category::all();
+        if (isset($request->category_id)){
+            $productos = Product::where('status' ,'NO RESERVADO')->where('category_id',  $request->category_id)
 
-        return view('welcome', compact('productos' , 'rooms'));
+                ->paginate(100);
+        if ($request->ajax()) {
+
+            return response()->json(view('tablaproductos', compact('productos', 'rooms', 'categorias'))->render());
+
+        }
+        }
+        if ($request->ajax()) {
+
+            return response()->json(view('tablaproductos', compact('productos', 'rooms', 'categorias'))->render());
+
+        }
+
+
+
+        return view('welcome', compact('productos' , 'rooms','categorias'));
+
+
+
     }
 }

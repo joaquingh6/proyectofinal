@@ -3,10 +3,12 @@
 
 @section('content')
 
-    <div id="app">
+    <WelcomeComponen></WelcomeComponen>
         <div class="container">
+
             <div class="col-12 mr-auto ml-auto mt-5">
                 <h4 class="text-xl-center mb-4">Listado de tus productos </h4>
+
                 <table class="table table-hover">
                     <thead class="thead-dark">
                     <tr align="center">
@@ -19,29 +21,35 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @if(isset($reservados))
                     @foreach($reservados as $reservado)
                     <tr align="center">
 
                             <th scope="row">{{$reservado->id}}</th>
                             <td>{{$reservado->product_id}}</td>
                             <td>Categoria</td>
-                            <td>{{$reservado->room->name}}</td>
+                                @if(isset($reservado->room->name))
+                                    <td>{{$reservado->room->name}}</td>
+                                @else
+                                    <td></td>
+                                @endif
+
                             <td>{{$reservado->end_date}}</td>
-                            @if($reservado->Product->status == 'RESERVADO' && !isset($reservado->real_end_date))
+
+                            @if( !isset($reservado->real_end_date))
                             <td><a href="/devolver/{{$reservado->id}}"><i class="far fa-arrow-alt-circle-down"></i></a></td>
                             @else
                                 <td>{{$reservado->real_end_date}}</td>
                             @endif
                     </tr>
                     @endforeach
+                        @else
+                    <td></td>
+                        @endif
 
                     </tbody>
                 </table>
             </div>
-        </div>
-
-
-
 
 
     </div>

@@ -4,4 +4,4 @@ var app = new Vue({
 
     }
 
-})
+});

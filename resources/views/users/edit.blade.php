@@ -9,12 +9,12 @@
                     @csrf
                     <h3 class="text-center">Editar Usuario</h3>
                     <div id="app" style="width: 50%" align="center">
-                        <b>Name:</b>
+                        <b>Nombre:</b>
                         <input class="form-control" type="text" name="name" value="{{$user->name}}" id="editarproducto" >
                         <hr>
                         <b>Email:</b>
                         <input type="email" class="form-control" name="email" value="{{$user->email}}">
-                        <b>Password:</b>
+                        <b>Contraseña:</b>
                         <input class="form-control" type="password" name="password" id="">
                         <div class="modal-footer">
                             <input type="submit" class="btn btn-primary" value="Editar">

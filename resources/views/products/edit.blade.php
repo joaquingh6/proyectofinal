@@ -7,12 +7,12 @@
             <div class="col-12 mt-5" align="center">
                 <form action="/product/guardar/{{$product->id}}" method="post">
                     @csrf
-                    <h3 class="text-center">Editar Categoria</h3>
-                    <div id="app" style="width: 50%" align="center">
-                        <b>Name:</b>
+                    <h3 class="text-center">Editar Producto</h3>
+                    <div id="app" style="width: 50%" align="left">
+                        <b>Nombre:</b>
                         <input class="form-control" type="text" name="name" value="{{$product->name}}" id="editarproducto" >
                         <hr>
-                        <b>Description:</b>
+                        <b>Descripcion:</b>
                         <textarea class="form-control" type="text" name="description" id="crearproducto" >{{$product->description}}</textarea>
                         <hr>
                         <b>Categoria:</b>
