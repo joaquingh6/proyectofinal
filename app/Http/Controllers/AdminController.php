@@ -13,94 +13,102 @@ use App\Room;
 
 class AdminController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        if (isset(Auth::user()->role_id)) {
 
-        if (Auth::user()->role_id == 1){
+            if (Auth::user()->role_id == 1) {
+                return view('admin.index');
 
-            return view('admin.index');
+            } else {
 
-        }else{
+                return redirect('/');
+            }
+        } else {
 
-            $productos = Product::where('status' ,'NO RESERVADO')->get();
+            return redirect('/login');
 
-            $rooms = Room::all();
-
-            return view('welcome', compact('productos' , 'rooms'));
         }
-
     }
+
 
     public function productos()
     {
-        if (Auth::user()->role_id == 1){
-            $productos = Product::all();
-            $categorias = Category::all();
+        if (isset(Auth::user()->role_id)) {
+            if (Auth::user()->role_id == 1) {
+                $productos = Product::all();
+                $categorias = Category::all();
 
-            return view('admin.productos',compact('productos' , 'categorias'));
-            }else{
+                return view('admin.productos', compact('productos', 'categorias'));
+            } else {
 
+                return redirect('/');
+            }
+        } else {
 
-            $productos = Product::where('status' ,'NO RESERVADO')->get();
+            return redirect('/login');
 
-            $rooms = Room::all();
-
-            return view('welcome', compact('productos' , 'rooms'));
         }
 
     }
 
     public function categorias()
     {
-        if (Auth::user()->role_id == 1){
-            $categorias = Category::all();
-            return view('admin.categorias' , compact('categorias'));
+        if (isset(Auth::user()->role_id)) {
+            if (Auth::user()->role_id == 1) {
+                $categorias = Category::all();
+                return view('admin.categorias', compact('categorias'));
 
-        }else{
+            } else {
 
+                return redirect('/');
 
-            $productos = Product::where('status' ,'NO RESERVADO')->get();
+            }
+        } else {
 
-            $rooms = Room::all();
+            return redirect('/login');
 
-            return view('welcome', compact('productos' , 'rooms'));
         }
     }
 
     public function usuarios()
     {
-        if (Auth::user()->role_id == 1){
-            $usuarios = User::all();
+        if (isset(Auth::user()->role_id)) {
+            if (Auth::user()->role_id == 1) {
+                $usuarios = User::all();
 
-             return view('admin.users' , compact('usuarios'));
+                return view('admin.users', compact('usuarios'));
 
-        }else{
+            } else {
 
+                return redirect('/');
 
-            $productos = Product::where('status' ,'NO RESERVADO')->get();
+            }
 
-            $rooms = Room::all();
+        } else {
 
-            return view('welcome', compact('productos' , 'rooms'));
+            return redirect('/login');
 
         }
     }
 
     public function rooms()
     {
-        if (Auth::user()->role_id == 1){
+        if (isset(Auth::user()->role_id)) {
+            if (Auth::user()->role_id == 1) {
 
 
-        $rooms = Room::all();
+                $rooms = Room::all();
 
-        return view('admin.rooms' , compact('rooms'));
-        }else{
+                return view('admin.rooms', compact('rooms'));
+            } else {
 
+                return redirect('/');
 
-            $productos = Product::where('status' ,'NO RESERVADO')->get();
+            }
+        } else {
 
-            $rooms = Room::all();
-
-            return view('welcome', compact('productos' , 'rooms'));
+            return redirect('/login');
 
         }
     }

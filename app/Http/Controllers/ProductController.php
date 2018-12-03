@@ -37,7 +37,7 @@ class ProductController extends Controller
         $fecha = Carbon::now()->format('d M Y');
 
         $new['start_date'] = $fecha;
-        $new['end_date'] = $request->end_date;
+        $new['end_date'] = Carbon::parse($request->end_date)->format('d M Y');
         $new['user_id'] = Auth::user()->id;
         $new['product_id'] = $request->idproducto;
         $new['room_id'] = $request->room_id;
@@ -59,9 +59,10 @@ class ProductController extends Controller
 
 
 
-        $productos = Product::where('status' ,'NO RESERVADO')->get();
+        $productos = Product::where('status' ,'NO RESERVADO')->paginate(5);
+        $categorias = Category::all();
 
-        return view('welcome', compact('productos'));
+        return view('welcome', compact('productos' , 'categorias'));
 
     }
 

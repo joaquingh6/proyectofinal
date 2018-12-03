@@ -10,6 +10,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
+            <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -26,11 +27,11 @@
 
 
                         <td style="text-align: center">
-                            <a href="/room/{{$room->id}}/edit"><i class=""></i>Editar</a>
+                            <a href="/room/{{$room->id}}/edit" class="btn btn-primary" ><i class=""></i>Editar</a>
                         </td>
                         <td style="text-align: center">
 
-                            <a href="/room/destroy/{{$room->id}}" onclick="return confirm('¿Seguro que quieres comprar?')"><i class="">Borrar</i></a>
+                            <a href="/room/destroy/{{$room->id}}" class="btn btn-primary"  onclick="return confirm('¿Seguro que quieres comprar?')"><i class="">Borrar</i></a>
 
                         </td>
                     </tr>
@@ -39,6 +40,7 @@
                 </tbody>
 
             </table>
+            </div>
         </div>
         <!-- /.box-body -->
     </div>

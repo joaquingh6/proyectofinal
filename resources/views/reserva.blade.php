@@ -8,10 +8,12 @@
 
             </div>
             <div class="modal-body">
-                <form action="reservar" method="get">
-                <div id="app">
-                    <b>Fecha:</b>
-                    <vuejs-datepicker name="end_date"></vuejs-datepicker>
+                <form action="reservar" autocomplete="off" method="get">
+                <div id="app1">
+                 <b>Fecha:</b><br>
+                 <input type="text" id="datepicker" name="end_date">
+                    <br>
+
                     @if(isset($producto))
                     <input name="idproducto" value="{{$producto->id}}" type="text" hidden>
                     @endif
@@ -32,22 +34,15 @@
                     </div>
                 </div>
                 </form>
-                <script src="https://unpkg.com/vue"></script>
-                <script src="https://unpkg.com/vuejs-datepicker"></script>
-                <script>
-                    const app = new Vue({
-                        el: '#app',
-                        components: {
-                            vuejsDatepicker
-                        }
-                    })
-                </script>
+
 
 
 
             </div>
 
         </div>
+
+
     </div>
 </div>
 

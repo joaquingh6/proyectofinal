@@ -22,7 +22,7 @@
     "dependencies": {
         "luxon": "^1.4.3",
         "vue-datetime": "^1.0.0-beta.6",
-        "vuejs-datepicker": "^1.5.3",
+        "vuejs-datepicker": "^1.5.4",
         "weekstart": "^1.0.0"
     }
 }

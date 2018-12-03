@@ -45,11 +45,15 @@
 
 
         @endforeach
-
-        {{ $productos->render() }}
+        <tr>
+            <td colspan="3"> </td>
+             <td align="center" colspan="6">{{ $productos->render() }}</td>
+            <td colspan="3"></td>
+        </tr>
         </tbody>
     </table>
     </div>
+
     @include('reserva')
 </div>
 </div>

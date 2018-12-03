@@ -10,6 +10,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
+            <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -28,11 +29,11 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->role_id}}</td>
                         <td style="">
-                            <a href="/user/{{$user->id}}/edit"><i class=""></i>Editar</a>
+                            <a href="/user/{{$user->id}}/edit" class="btn btn-primary" ><i class=""></i>Editar</a>
                         </td>
                         <td style="">
 
-                            <a href="/user/destroy/{{$user->id}}" onclick="return confirm('¿Seguro que quieres comprar?')"><i class="">Borrar</i></a>
+                            <a href="/user/destroy/{{$user->id}}" class="btn btn-primary" onclick="return confirm('¿Seguro que quieres comprar?')"><i class="">Borrar</i></a>
 
                         </td>
                     </tr>
@@ -41,6 +42,7 @@
                 </tbody>
 
             </table>
+            </div>
         </div>
         <!-- /.box-body -->
     </div>

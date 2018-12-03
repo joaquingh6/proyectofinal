@@ -30,10 +30,7 @@ class HomeController extends Controller
     public function index()
     {
 
-
-
-
-        return view('home');
+        return view('/');
     }
 
     public function logout(){
@@ -56,11 +53,12 @@ class HomeController extends Controller
 
     public function welcome(Request $request){
 
-        $productos = Product::where('status' ,'NO RESERVADO')->where('id', 'LIKE' , '%' . $request->dato . '%')
-            ->orWhere('name', 'LIKE' , '%' . $request->dato . '%')
-            ->orWhere('serial', 'LIKE' , '%' . $request->dato . '%')
-            ->paginate(100);
-
+        $productos = Product::where('status' ,'NO RESERVADO')
+        ->where(function($query) use ($request){
+            $query->where('name', 'LIKE' , '%' . $request->dato . '%')
+                  ->orWhere('serial', 'LIKE' , '%' . $request->dato . '%')
+                  ->orwhere('id', 'LIKE' , '%' . $request->dato . '%');
+        })->paginate(8);
 
         $rooms = Room::all();
         $categorias = Category::all();
