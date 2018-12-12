@@ -36,6 +36,12 @@
                         </td>
                     </tr>
                 @endforeach
+                    <tr>
+                        <td colspan="3"> </td>
+                        <td align="center" colspan="6">{{ $categorias->render() }}</td>
+                        <td colspan="3"></td>
+                    
+                    </tr>
 
                 </tbody>
 

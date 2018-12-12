@@ -77,6 +77,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function editar($id){
+
+         $user = User::where('id' , $id)->first();
+        return view('users.edit' , compact('user'));
+
+    }
     public function guardar(Request $request, $id)
     {
         $new['name'] =  $request->name;

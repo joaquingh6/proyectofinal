@@ -36,7 +36,7 @@ class AdminController extends Controller
     {
         if (isset(Auth::user()->role_id)) {
             if (Auth::user()->role_id == 1) {
-                $productos = Product::all();
+                $productos = Product::paginate(10);
                 $categorias = Category::all();
 
                 return view('admin.productos', compact('productos', 'categorias'));
@@ -56,7 +56,7 @@ class AdminController extends Controller
     {
         if (isset(Auth::user()->role_id)) {
             if (Auth::user()->role_id == 1) {
-                $categorias = Category::all();
+                $categorias = Category::paginate(10);;
                 return view('admin.categorias', compact('categorias'));
 
             } else {
@@ -75,7 +75,7 @@ class AdminController extends Controller
     {
         if (isset(Auth::user()->role_id)) {
             if (Auth::user()->role_id == 1) {
-                $usuarios = User::all();
+                $usuarios = User::paginate(10);
 
                 return view('admin.users', compact('usuarios'));
 
@@ -98,7 +98,7 @@ class AdminController extends Controller
             if (Auth::user()->role_id == 1) {
 
 
-                $rooms = Room::all();
+                $rooms = Room::paginate(10);
 
                 return view('admin.rooms', compact('rooms'));
             } else {

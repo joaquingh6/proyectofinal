@@ -29,7 +29,7 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->role_id}}</td>
                         <td style="">
-                            <a href="/user/{{$user->id}}/edit" class="btn btn-primary" ><i class=""></i>Editar</a>
+                            <a href="/user/editar/{{$user->id}}" class="btn btn-primary" ><i class=""></i>Editar</a>
                         </td>
                         <td style="">
 
@@ -38,6 +38,11 @@
                         </td>
                     </tr>
                 @endforeach
+                  <tr>
+                        <td colspan="3"> </td>
+                        <td align="center" colspan="6">{{ $usuarios->render() }}</td>
+                        <td colspan="3"></td>
+                </tr>
 
                 </tbody>
 

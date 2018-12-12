@@ -36,6 +36,10 @@
                         </td>
                     </tr>
                 @endforeach
+                    <tr>
+                        <td align="center" colspan="6">{{ $rooms->render() }}</td>
+                    
+                    </tr>
 
                 </tbody>
 

@@ -41,26 +41,30 @@ Route::get('devolver/{id}' ,'ProductController@devolver');
 
 
 //categorias
-Route::resource('/category' , 'CategoryController');
+
 Route::get('category/destroy/{id}' , 'CategoryController@destroy');
 Route::post('category/guardar/{id}','CategoryController@guardar');
+Route::resource('/category' , 'CategoryController');
 
 //productos
-Route::resource('/product' , 'ProductController');
 Route::get('product/destroy/{id}' ,'ProductController@destroy');
 Route::post('product/guardar/{id}','ProductController@guardar');
+Route::resource('/product' , 'ProductController');
+
 
 
 //rooms
-Route::resource('/room','RoomController');
 Route::get('room/destroy/{id}','RoomController@destroy');
 Route::post('room/guardar/{id}' , 'RoomController@guardar');
+Route::resource('/room','RoomController');
 
 
 //User
-Route::resource('/User' , 'UserController');
+Route::get('user/editar/{id}' , 'UserController@editar');
 Route::get('user/destroy/{id}' , 'UserController@destroy');
 Route::post('user/guardar/{id}' , 'UserController@guardar');
+Route::resource('/User' , 'UserController');
+
 
 
 
