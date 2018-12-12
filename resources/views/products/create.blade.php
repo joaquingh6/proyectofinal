@@ -13,13 +13,13 @@
                     <h3>Crear Producto</h3>
                     <div id="app">
                         <b>Nombre:</b>
-                        <input class="form-control" type="text" name="name" id="crearproducto" >
+                        <input class="form-control" type="text" data-validation="required" name="name" id="crearproducto" >
                         <br>
                         <b>Descripcion:</b>
-                        <textarea class="form-control" type="text" name="description" id="crearproducto" ></textarea>
+                        <textarea class="form-control" type="text" data-validation="required" name="description" id="crearproducto" ></textarea>
                         <br>
                         <b>Categoria:</b>
-                        <select class="form-control" name="category_id" id="">
+                        <select class="form-control"  data-validation="required" name="category_id" id="">
                                 @foreach($categorias as $category)
 
                                 <option value="{{$category->id}}">{{$category->name}}</option>

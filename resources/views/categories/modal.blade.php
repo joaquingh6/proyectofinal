@@ -14,7 +14,7 @@
                     <h3>Crear Categoria</h3>
                     <div id="app">
                         <b>Nombre:</b>
-                        <input class="form-control" type="text" name="name" id="crearproducto" >
+                        <input data-validation="required" class="form-control" type="text" name="name" id="crearproducto" >
                         <br>
 
                         <div class="modal-footer">

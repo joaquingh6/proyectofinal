@@ -10,10 +10,10 @@
                     <h3 class="text-center">Editar Producto</h3>
                     <div id="app" style="width: 50%" align="left">
                         <b>Nombre:</b>
-                        <input class="form-control" type="text" name="name" value="{{$product->name}}" id="editarproducto" >
+                        <input data-validation="required" class="form-control" type="text" name="name" value="{{$product->name}}" id="editarproducto" >
                         <hr>
                         <b>Descripcion:</b>
-                        <textarea class="form-control" type="text" name="description" id="crearproducto" >{{$product->description}}</textarea>
+                        <textarea data-validation="required" class="form-control" type="text" name="description" id="crearproducto" >{{$product->description}}</textarea>
                         <hr>
                         <b>Categoria:</b>
                         <select class="form-control" name="category_id" id="">

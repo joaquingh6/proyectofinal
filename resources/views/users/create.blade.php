@@ -13,11 +13,11 @@
                     <h3>Crear Usuario</h3>
                     <div id="app">
                         <b>Nombre:</b>
-                        <input class="form-control" type="text" name="name" id="crearusuario" >
+                        <input data-validation="required" class="form-control" type="text" name="name" id="crearusuario" >
                         <b>Email:</b>
-                        <input type="email" class="form-control" name="email">
+                        <input data-validation="required" type="email" class="form-control" name="email">
                         <b>Contraseña:</b>
-                        <input class="form-control" type="password" name="password" id="">
+                        <input data-validation="required" class="form-control" type="password" name="password" id="">
 
                         <div class="modal-footer">
                             <input type="submit" class="btn btn-primary" value="Crear">

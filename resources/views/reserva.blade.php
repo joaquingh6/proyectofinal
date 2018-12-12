@@ -11,7 +11,7 @@
                 <form action="reservar" autocomplete="off" method="get">
                 <div id="app1">
                  <b>Fecha:</b><br>
-                 <input type="text" id="datepicker" name="end_date">
+                 <input data-validation="required" type="text" id="datepicker" name="end_date">
                     <br>
 
                     @if(isset($producto))
