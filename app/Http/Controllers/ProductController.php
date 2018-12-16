@@ -83,7 +83,7 @@ class ProductController extends Controller
 
         $reservados = Rent::where('user_id',Auth::user()->id)->get();
 
-        return view('perfil' , compact('reservados'));
+        return redirect()->route('perfil'); 
 
 
     }

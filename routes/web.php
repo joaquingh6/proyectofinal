@@ -29,7 +29,7 @@ Route::get('/admin/rooms' , 'AdminController@rooms')->name('admin.rooms');
 
 Route::get('/admin/categorias' , 'AdminController@categorias')->name('admin.categorias');
 
-Route::get('perfil' , 'HomeController@perfil');
+Route::get('perfil' , 'HomeController@perfil')->name('perfil');
 
 Route::get('reservar' ,'ProductController@reservar');
 
