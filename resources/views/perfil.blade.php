@@ -27,7 +27,11 @@
 
                             <th scope="row">{{$reservado->id}}</th>
                             <td>{{$reservado->product_id}}</td>
-                            <td>Categoria</td>
+                            @if($reservado->product->category)
+                            <td>{{$reservado->product->category->name}}</td>
+                            @else
+                            <td>No tiene categoria</td>
+                            @endif
                                 @if(isset($reservado->room->name))
                                     <td>{{$reservado->room->name}}</td>
                                 @else
