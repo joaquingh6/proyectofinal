@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@welcome')->name('');
+Route::get('/', 'HomeController@welcome')->name('welcome');
 
 Auth::routes();
 
@@ -21,13 +21,13 @@ Route::get('/logout' , 'HomeController@logout')->name('logout');
 
 Route::get('/admin' , 'AdminController@index');
 
-Route::get('/admin/productos' , 'AdminController@productos');
+Route::get('/admin/productos' , 'AdminController@productos')->name('admin.productos');
 
-Route::get('/admin/users' , 'AdminController@usuarios');
+Route::get('/admin/users' , 'AdminController@usuarios')->name('admin.usuarios');
 
-Route::get('/admin/rooms' , 'AdminController@rooms');
+Route::get('/admin/rooms' , 'AdminController@rooms')->name('admin.rooms');
 
-Route::get('/admin/categorias' , 'AdminController@categorias');
+Route::get('/admin/categorias' , 'AdminController@categorias')->name('admin.categorias');
 
 Route::get('perfil' , 'HomeController@perfil');
 

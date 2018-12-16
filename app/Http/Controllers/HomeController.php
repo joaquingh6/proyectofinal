@@ -65,7 +65,7 @@ class HomeController extends Controller
         if (isset($request->category_id)){
             $productos = Product::where('status' ,'NO RESERVADO')->where('category_id',  $request->category_id)
 
-                ->paginate(100);
+                ->paginate(10);
         if ($request->ajax()) {
 
             return response()->json(view('tablaproductos', compact('productos', 'rooms', 'categorias'))->render());

@@ -38,7 +38,11 @@
 
                         <th scope="row">{{$producto->id}}</th>
                         <td>{{$producto->name}}</td>
+                        @if(isset($producto->category))
                         <td>{{$producto->category->name}}</td>
+                        @else
+                        <td>No tiene categoria</td>
+                        @endif
                         <td>{{$producto->serial}}</td>
                         <td><a href="" name="idproducto" value="{{$producto->id}}"  data-toggle="modal" data-target="#create"><i class="fas fa-shopping-cart"></i></a></td>
                     </tr>

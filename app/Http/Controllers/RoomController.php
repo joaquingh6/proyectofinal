@@ -13,7 +13,7 @@ class RoomController extends Controller
 
         $room = Room::create($new);
         $rooms = Room::all();
-        return view('admin/rooms', compact('rooms'));
+        return redirect()->route('admin.rooms'); 
 
     }
     public function destroy($id)
@@ -21,7 +21,7 @@ class RoomController extends Controller
         $room = Room::find($id)->delete();
         $rooms = Room::all();
 
-        return view('admin.rooms' , compact('rooms'));
+       return redirect()->route('admin.rooms'); 
     }
     public function edit($id)
     {
@@ -41,6 +41,6 @@ class RoomController extends Controller
         $room->save();
 
         $rooms = Room::all();
-        return view('admin.rooms' , compact('rooms'));
+        return redirect()->route('admin.rooms'); 
     }
 }

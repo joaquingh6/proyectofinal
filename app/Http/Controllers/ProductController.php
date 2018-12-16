@@ -120,10 +120,10 @@ class ProductController extends Controller
         $new['serial'] = md5(microtime());
 
         $producto = Product::create($new);
-        $productos = Product::all();
+        $productos = Product::paginate(10);
         $categorias = Category::all();
 
-        return view('admin.productos',compact('productos' , 'categorias'));
+         return redirect()->route('admin.productos'); 
     }
 
     /**
@@ -163,9 +163,9 @@ class ProductController extends Controller
         $product->update($new);
         $product->save();
 
-        $productos = Product::all();
+        $productos = Product::paginate(10);
         $categorias = Category::all();
-        return view('admin.productos' , compact('productos' , 'categorias'));
+        return redirect()->route('admin.productos'); 
 
 
     }
@@ -191,9 +191,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $producto = Product::find($id)->delete();
-        $productos = Product::all();
+        $productos = Product::paginate(10);
         $categorias = Category::all();
 
-        return view('admin.productos' , compact('productos' ,'categorias'));
+        return redirect()->route('admin.productos'); 
     }
 }

@@ -44,15 +44,12 @@ class CategoryController extends Controller
            $categoria = Category::create($new);
            $categorias = Category::all();
 
-            return view('admin.categorias' , compact('categorias'));
+            return redirect()->route('admin.categorias'); 
 
         }else {
 
-            $productos = Product::where('status' ,'NO RESERVADO')->get();
+                return redirect()->route('welcome'); 
 
-            $rooms = Room::all();
-
-            return view('welcome', compact('productos' , 'rooms'));
         }
     }
 
@@ -79,15 +76,12 @@ class CategoryController extends Controller
             $category = Category::where('id' , $id)->first();
 
 
-            return view('categories.edit' , compact('category'));
+            return view('categories.edit')->with('category' , $category);
 
         }else {
 
-                $productos = Product::where('status' ,'NO RESERVADO')->get();
-
-                $rooms = Room::all();
-
-                return view('welcome', compact('productos' , 'rooms'));
+               return redirect()->route('welcome'); 
+                    
         }
     }
 
@@ -99,8 +93,10 @@ class CategoryController extends Controller
            $category->save();
 
             $categorias = Category::all();
-            return view('admin.categorias' , compact('categorias'));
-    }
+            return redirect()->route('admin.categorias'); 
+
+            }
+
 
     /**
      * Update the specified resource in storage.
@@ -125,7 +121,7 @@ class CategoryController extends Controller
         $category = Category::find($id)->delete();
         $categorias = Category::all();
 
-        return view('admin.categorias' , compact('categorias'));
+            return redirect()->route('admin.categorias'); 
 
     }
 }

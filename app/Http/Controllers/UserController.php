@@ -44,7 +44,7 @@ class UserController extends Controller
 
         $usuarios = User::all();
 
-        return view('admin.users' , compact('usuarios'));
+        return redirect()->route('admin.usuarios'); 
     }
 
     /**
@@ -95,7 +95,7 @@ class UserController extends Controller
 
         $usuarios = User::all();
 
-        return view('admin.users' , compact('usuarios'));
+        return redirect()->route('admin.usuarios'); 
     }
 
     public function update(Request $request, $id)
@@ -114,6 +114,6 @@ class UserController extends Controller
         $user = User::find($id)->delete();
         $usuarios = User::all();
 
-        return view('admin.users' , compact('usuarios'));
+        return redirect()->route('admin.usuarios'); 
     }
 }
