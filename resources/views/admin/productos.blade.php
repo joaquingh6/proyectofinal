@@ -34,7 +34,7 @@
                         </td>
                         <td style="text-align: center">
 
-                            <a href="/product/destroy/{{$producto->id}}" class="btn btn-primary" onclick="return confirm('¿Seguro que quieres comprar?')"><i class="">Borrar</i></a>
+                            <a href="/product/destroy/{{$producto->id}}" class="btn btn-primary" onclick="return confirm('¿Seguro que quieres eliminar?')"><i class="">Borrar</i></a>
 
                         </td>
                     </tr>
